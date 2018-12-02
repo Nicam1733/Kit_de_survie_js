@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+    <title>Exo4</title>
+
+</head>
+
+
+<body>
+
+
+     <script type="text/javascript">
+    var Personne = {
+      nom: "",
+      prenom: "",
+      dateNaissance: [1, 1, 1977],
+      taille: 172,
+      init: function(nom, prenom, dateNaissance, taille){
+      this.nom           = nom;
+      this.prenom        = prenom;
+      this.dateNaissance = dateNaissance;
+      this.taille        = taille;
+      },
+      decrire: function(){ console.log(this.nom + " " + this.prenom + " " + this.dateNaissance, + " " + this.taille + " " + this.direAge()); },
+      direAge: function(){ var ddj = new Date();
+                              var direAge = ddj.getFullYear() - this.dateNaissance[2];
+                              return direAge;
+                         },
+      };
+
+      var Professeur = Object.create(Personne); // On cr ́ee la r ́ef ́erence `a l’objet Personne
+      Professeur.adressemail = "leprof@lemeilleur.com";
+      Professeur.initProfesseur = function(nom, prenom, dateNaissance, taille, adressemail){
+        // On appelle la fonction de l’objet Personne
+        this.init(nom, prenom, dateNaissance, taille);
+        this.adressemail = adressemail;
+      }
+      Professeur.decrire = function(){ console.log(this.nom + " " + this.prenom + " " + this.dateNaissance + " " + this.taille + " " + this.adressemail + " " + this.direAge()); };
+
+      var prof = Object.create(Professeur);
+      prof.initProfesseur("LeMaire", "Denis", [26, 7, 1960], 172, "leprof@lemeilleur.com");
+      prof.decrire();
+  </script>
+
+
+
+</body>
+
+</html>

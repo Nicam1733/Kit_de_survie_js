@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Kit de Survie JS</title>
+    <meta name="description" content="">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <style>
+      body{ font-family: 'Quicksand', sans-serif; }
+
+
+  </style>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $.ajax({
+          url: 'http://www.labri.fr/perso/pbiasutt/Cours/KDJS/TD02/functions.php',
+          dataType: 'script',
+          beforeSend: function(){ console.log('Envoi de la requete ...'); },
+          complete: function(data){
+          console.log('Reponse recue');
+          console.log(data);
+          console.log(isPrime(3));
+          },
+          method: 'get'
+          });
+       });
+    </script>
+</head>
+<body>
+
+  <div>
+    <form>
+    Le nombre est il premier? :
+      <input id="nbp" type="text" name="nbp">
+      <button type="submit" onclick="alert(isPrime(document.getElementById('nbp').value))">Demander</button>
+    </form>
+  </div>
+
+</body>
+
+</html>

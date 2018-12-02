@@ -1,0 +1,37 @@
+ <!DOCTYPE html>
+ <html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+ </script>
+ <body>
+ <div ng-app="app01" ng-controller="controlleur01">
+ 	<p>Nombre 1 : <input type="text" ng-model="nombre1"></p>
+ 	<p>Nombre 2 : <input type="text" ng-model="nombre2"></p>
+ 	<p>Opérateur : 
+ 		<select name="operateur" ng-model="selecteur">
+	 		<option value="+" ng-option="option1">+</option>
+	 		<option value="-" ng-option="option2">-</option>
+	 		<option value="*" ng-option="option3">*</option>
+	 		<option value="/" ng-option="option4">/</option>
+ 		</select>
+ 	</p>
+ 	<p>Résultat: {{ nombre1 }} {{selecteur}} {{ nombre2 }} = {{ calcul() }} </p>
+ </div>
+ <script>
+	var app = angular.module("app01", []);
+	app.controller("controlleur01", function($scope){
+	  $scope.calcul = function(){ 
+	  	var result;
+	  	switch($scope.selecteur)
+	  	{
+	  		case "+":result = parseInt($scope.nombre1) + parseInt($scope.nombre2);break;
+	  		case "-":result = parseInt($scope.nombre1) - parseInt($scope.nombre2);break;
+	  		case "*":result = parseInt($scope.nombre1) * parseInt($scope.nombre2);break;
+	  		case "/":result = parseInt($scope.nombre1) / parseInt($scope.nombre2);break;
+	  	}
+	  	return(result);
+	  };
+	});
+ </script>
+ 
+ </body>
+ </html>

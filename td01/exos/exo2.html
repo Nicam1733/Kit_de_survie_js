@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+    <title>Exo2</title>
+
+</head>
+
+
+<body>
+
+
+    <script>
+
+
+        var etudiant = {
+        	nom: "Roux",
+        	prenom: "Nicolas",
+        	numEtudiant: "109823",
+        	dateNaissance: [1, 1, 1977],
+        }
+
+        function Etudiant(nom, prenom, numEtudiant, dateNaissance){
+        	this.nom = nom;
+        	this.prenom = prenom;
+        	this.numEtudiant = numEtudiant;
+        	this.dateNaissance = dateNaissance;
+        	this.age = function()
+        	{
+        		var date = new Date();
+        		var age = date.getFullYear() - dateNaissance[2];
+        		return age;
+        	};
+        	this.presenter = function (){
+        		console.log("Je suis "+ this.nom + " " + this.prenom + " et j'ai " + this.age() + " ans.")
+        	};
+        }
+
+        var etu1 = new Etudiant("Roux","Nicolas","102932",[17,3,1998]);
+        var etu2 = new Etudiant("Elnorcel","Damien","102931",[18,11,1997]);
+
+        etu1.presenter();
+        etu2.presenter();
+
+
+    </script>
+
+
+</body>
+
+</html>

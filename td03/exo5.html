@@ -1,0 +1,27 @@
+ <!DOCTYPE html>
+ <html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+ </script>
+ <body>
+ <div ng-app="app01" ng-app="app01" ng-controller="controlleur01">
+ 	<p id="liste">
+
+ 	</p>
+ </div>
+ <script src="js/external/jquery/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+ <script>
+ 	var app = angular.module("app01", []);
+ 	app.controller("controlleur01", function($scope, $http){
+		$http.get("https://raw.githubusercontent.com/fanzeyi/Pokemon-DB/master/pokedex.json").then(function(response){
+			for (var i = response.data.length - 1; i >= 0; i--) {
+				$( "#liste").append("- ").text();
+				$( "#liste").append(response.data[i].ename).text();
+				$( "#liste").append("</br>").text();
+			}
+		});
+ 	});
+ </script>
+ 
+ </body>
+ </html>

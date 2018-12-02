@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+
+    <style>
+        
+        
+        .erreur {
+            font-size: 15px;
+            color: red;
+            margin-left: 30px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div id="mainContainer" ng-app="app" ng-controller="controlleur01">
+
+    <form name="form">
+        <div class="field">
+            <label>Email</label></br>
+            <input type="email" ng-model="email" name="userMail" placeholder="Entrez votre adresse mail"
+                   ng-model="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required/>
+
+            <div ng-messages="form.userMail.$error">
+                <div ng-message="required" class="erreur">Ce champ est obligatoire</div>
+                <div ng-message="pattern" class="erreur">Veuillez saisir une adresse valide</div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Télephone</label></br>
+            <input type="text" name="userNumTel" placeholder="Entrez votre numéro"
+                   ng-model="numTel" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" required/>
+
+            <div ng-messages="form.userNumTel.$error">
+                <div ng-message="required" class="erreur">Ce champ est obligatoire</div>
+                <div ng-message="pattern" class="erreur">Ce champs doit être une suite de 10 chiffres</div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Mot de passe</label></br>
+            <input type="password" ng-model="password" name="userPassword" placeholder="Entrez votre mot de passe"
+                   ng-model="password" required/>
+
+            <div ng-messages="form.userPassword.$error">
+                <div ng-message="required" class="erreur">Ce champ est obligatoire</div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Confirmation mot de passe</label></br>
+            <input type="password" ng-model="passConfirm" name="userPassConfirm" placeholder="Confirmez votre mot de passe"
+                   ng-model="passConfirm" ng-pattern="password" required/>
+
+            <div ng-messages="form.userPassConfirm.$error">
+                <div ng-message="required" class="erreur">Ce champ est obligatoire</div>
+                <div ng-message="pattern" class="erreur">Doit être équivalent au mot de passe choisi</div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+    var app = angular.module('app', ['ngMessages']);
+    app.controller("controlleur01", function($scope){
+        $scope.password = "";
+        $scope.passConfirm = "";
+    });
+</script>
+
+</body>
+</html>

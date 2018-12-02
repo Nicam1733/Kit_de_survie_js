@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+    <title>Exo3</title>
+
+</head>
+
+
+<body>
+
+
+    <script>
+
+
+       var Personne = {
+       	nom: "basenom",
+        prenom: "baseprenom",
+        dateNaissance: [1, 1, 1977],
+
+       	init: function(nom, prenom, dateNaissance){
+       		this.nom = nom;
+       		this.prenom = prenom;
+       		this.dateNaissance = dateNaissance;
+       	},
+
+       	decrire : function(){console.log("decrire");}
+       };
+
+       var Prof = Object.create(Personne);
+       Prof.mailProf = "basemail";
+       Prof.initProf = function (nom, prenom, dateNaissance, mailProf){
+       	this.init(nom, prenom, dateNaissance);
+
+       	this.mailProf = mailProf;
+       }
+       Prof.decrire = function(){
+       	console.log(this.nom + " " + this.prenom + " " + this.mailProf);
+       }
+
+       var professeur = Object.create(Prof);
+       professeur.initProf("NomProf", "PrenomProf", [3,3,1990], "mailduprof@gmail.com");
+       professeur.decrire();
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

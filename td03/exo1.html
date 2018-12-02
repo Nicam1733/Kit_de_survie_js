@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Example Page</title>
+	<link href="js/jquery-ui.css" rel="stylesheet">
+	<style></style>
+</head>
+<body>
+<div style="border: 2px solid black;">
+	<div class="ui-widget-content" id="draggable" style="background-color: red; min-height: 150px; max-width: 150px;">
+		<h2>DRAGABLE !</h2>
+	</div>
+	<ul id="sortable">
+		<li>Option 1</li>
+		<li>Option 2</li>
+		<li>Option 3</li>
+		<li>Option 4</li>
+		<li>Option 5</li>
+	</ul>
+	<button id="btn-order">Order</button>
+</div>
+	Top :<p id="pos-top"></p>10</br>
+	Left :<p id="pos-left">10</p>
+	<p>Order</p>
+	<p id="order">
+		
+	</p>
+</body>
+<script src="js/external/jquery/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script>
+
+
+  $( function() {
+    $( "#draggable" ).draggable({
+    	drag:function(event, ui){
+    		var pos = $('#draggable').position();
+    		$( "#pos-top").empty();
+    		$( "#pos-left").empty();
+    		$( "#pos-top").append(pos.top);
+    		$( "#pos-left").append(pos.left);
+    	},
+    	containment:'parent'
+    });
+
+    $( "#sortable" ).sortable();
+
+    $('#btn-order').click ( function()
+    {
+    	$( "#order").empty();
+    	$( "#order").append($('#sortable li').text());
+    	
+	})
+
+    
+
+
+ 
+    
+  } );
+
+	
+  
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Example Page</title>
+	<link href="js/jquery-ui.css" rel="stylesheet">
+	<style></style>
+</head>
+<body>
+
+<p id="hover">TEXTE</p>
+
+</body>
+<script src="js/external/jquery/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script>
+
+
+    
+ (function($){
+	$.fn.hoverF = function()
+	{
+		this.each(function(){
+			$(this).hover(function(){
+				$(this).css("font-size", "30px");
+			},
+			function(){
+				$(this).css("font-size", "initial");
+			});
+		});
+
+		return this;
+	};
+ })(jQuery);
+
+ $("#hover").hoverF();
+
+
+	
+  
+
+
+
+
+</script>
+
+</html>
